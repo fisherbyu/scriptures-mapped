@@ -5,4 +5,4 @@ This project contains geo tags for each place listed in the Bible, the Book of M
 ---
 ### Organization
 
-I've created two versions of this project to demonstrate my JavaScript knowledge. One uses an Immediately Invoked Function Expression (IIFE) that packages all the functionality into on object, and another version that uses JavaScript Modules.  
+I've created two versions of this project to demonstrate my JavaScript knowledge. One uses an Immediately Invoked Function Expression (IIFE) that packages all the functionality into an object, and another version that uses JavaScript Modules.  

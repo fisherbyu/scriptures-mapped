@@ -9,7 +9,7 @@
 /*-----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { showLocation } from "./MapHelper.js";
+import { showLocation } from "./MapInterface.js";
 import { init } from "./MapScripApi.js";
 import { onHashChanged } from "./Navigation.js";
 

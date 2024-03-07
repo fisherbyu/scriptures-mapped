@@ -1,1 +1,3 @@
-This project was difficult, but I did learn a lot.  I got a better understanding of how JavaScript works, and how we can use encapsulation to get around some of its quirks.  I've understood the importance of modular programming and breaking things down but this project really demonstrated its power.  Ultimatley, I had to do a lot from scratch and had to learn a new way of declaring functions, but I can see how building function type objects is a powerful way to manage accessability and run my programs.
+# Module Version
+
+This version takes the functionality of the original IIFE version, breaks it into modules, improves the styling and adds animations.

@@ -5,15 +5,26 @@
  *
  * DESCRIPTION: Front-end JavaScript code for the Scriptures, Mapped.
  */
-
-/*-----------------------------------------------------------------------
- *                      IMPORTS
+/*------------------------------------------------------------------------
+ *                      CONSTANTS
  */
-import { showLocation } from "./MapHelper.js";
-import { init } from "./MapScripApi.js";
-import { onHashChanged } from "./Navigation.js";
+
+/*------------------------------------------------------------------------
+ *                      VARIABLES
+ */
+
+/*------------------------------------------------------------------------
+ *                      PRIVATE METHODS
+ */
+
+/*------------------------------------------------------------------------
+ *                      EXPORTED FUNCTIONS
+ */
+
+
+
+
 
 /*-----------------------------------------------------------------------
  *                      EXPORTS
  */
-export { init, onHashChanged, showLocation };

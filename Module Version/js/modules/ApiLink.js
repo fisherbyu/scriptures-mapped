@@ -1,15 +1,15 @@
 /*========================================================================
- * FILE:    Breadcrumbs.js
+ * FILE:    Scriptures.js
  * AUTHOR:  Andrew Fisher
  * DATE:    Winter 2024
  *
- * DESCRIPTION: Functionality to update the breadcumb navigation of the Application.
+ * DESCRIPTION: JavaScript module to link up to the scriptures.byu.edu API.
  */
 
 /*-----------------------------------------------------------------------
  *                      IMPORTS
  */
-import { showLocation } from "./MapHelper.js";
+import { showLocation } from "./MapInterface.js";
 import { init } from "./MapScripApi.js";
 import { onHashChanged } from "./Navigation.js";
 

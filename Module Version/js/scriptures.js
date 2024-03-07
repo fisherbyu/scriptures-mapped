@@ -87,33 +87,6 @@ const MAX_ZOOM = 10
         }
     }
 
-    ajax = function(url, successCallback, failureCallback, skipJsonParse) {
-        let request = new XMLHttpRequest();
-
-        request.open('GET', url, true);
-
-        request.onload = function() {
-            if(request.status >= 200  && request.status < 400){
-                let data = request.responseText
-                if (skipJsonParse !== true) {
-                    data = JSON.parse(data);
-                }
-                
-
-                if(typeof successCallback === "function") {
-                    successCallback(data);
-                }
-            }
-            else {
-                if(typeof failureCallback === "function") {
-                    failureCallback(request);
-                }            
-            }
-        };
-        request.onerror = failureCallback;
-        request.send();
-    };
-
     bookChapterValid = function(bookId, chapter) {
         const book = books[bookId];
         if (book === undefined) {
@@ -151,45 +124,13 @@ const MAX_ZOOM = 10
 
         let booksContent = `<div class="books">${content}</div>`
         return booksContent;
-    }
-
-    cacheBooks = function(callback){
-        volumes.forEach (volume => {
-            let volumeBooks = [];
-            let bookId = volume.minBookId;
-
-            while(bookId <= volume.maxBookId){
-                volumeBooks.push(books[bookId]);
-                bookId += 1;
-            }
-            volume.books = volumeBooks;
-        });
-
-        if(typeof callback === "function"){
-            callback();
-        }
-    };
+    }  
 
     clearMapPins = function() {
         for (const pin of mapPins) {
             pin.setMap(null)
         }
         mapPins = [];
-    }
-
-    encodedScripturesURL = function(bookId, chapter, verses, isJst) {
-        if (bookId != undefined && chapter != undefined) {
-            let options = "";
-
-            if (verses !== undefined) {
-                options += verses;
-            }
-            if (isJst !== undefined) {
-                options += "&jst=JST";
-            }
-            const scripURL = `${URL_SCRIPTURES}?book=${bookId}&chap=${chapter}&verses${options}`;
-            return scripURL
-        }
     }
 
     extractGeoplaces = function() {
@@ -348,36 +289,7 @@ const MAX_ZOOM = 10
     }
 
 // Public Methods
-    init = function(readyListener) {
-        let booksLoaded = false;
-        let volumesLoaded = false;
-        
-        ajax("https://scriptures.byu.edu/mapscrip/model/books.php",
-            data  => {
-                books = data;
-                booksLoaded = true;
-
-                if(volumesLoaded) {
-                    cacheBooks(readyListener);
-                }
-            }
-        )
-        ajax("https://scriptures.byu.edu/mapscrip/model/volumes.php",
-        data  => {
-                volumes = data;
-                volumesLoaded = true;
-
-                if(booksLoaded) {
-                    cacheBooks(readyListener);
-                }
-            }
-        )
-
-        if (booksLoaded) {
-            console.log(books)
-        }
-        onHashChanged()
-    };
+    
 
     onHashChanged = function(event) {
         let ids = [];
